@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CustomersComponent } from './customers/customers.component';
 import { AccountsComponent } from './accounts/accounts.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewCustomerComponent } from './new-customer/new-customer.component';
 import { CustomerAccountsComponent } from './customer-accounts/customer-accounts.component';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { LoginComponent } from './login/login.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -18,7 +23,9 @@ import { CustomerAccountsComponent } from './customer-accounts/customer-accounts
     CustomersComponent,
     AccountsComponent,
     NewCustomerComponent,
-    CustomerAccountsComponent
+    CustomerAccountsComponent,
+    EditCustomerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +35,7 @@ import { CustomerAccountsComponent } from './customer-accounts/customer-accounts
   ],
   providers: [
     provideClientHydration()
+    
   ],
   bootstrap: [AppComponent]
 })
